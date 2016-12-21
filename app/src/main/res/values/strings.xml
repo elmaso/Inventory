@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Inventory</string>
+    <string name="err_bad_uri">"Insertion is not supported for "</string>
+    <string name="no_records_found_text">Its a bit lonely here</string>
+    <string name="add_product_title">Add Product</string>
+    <string name="edit_product_title">Edit Product</string>
+    <string name="add_product_photo">Add Product Photo</string>
+    <string name="err_external_storage_permissions">Need permissions to get a product photo</string>
+    <string name="action_insert_dummy_data">Insert dummy data</string>
+    <string name="action_delete_all_entries">Delete all Data</string>
 </resources>
