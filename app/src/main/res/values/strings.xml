@@ -1,11 +1,34 @@
 <resources>
     <string name="app_name">Inventory</string>
     <string name="err_bad_uri">"Insertion is not supported for "</string>
-    <string name="no_records_found_text">Its a bit lonely here</string>
+    <string name="no_records_found_text">Its a bit lonely here, please add a product \nClick the + button to start </string>
     <string name="add_product_title">Add Product</string>
     <string name="edit_product_title">Edit Product</string>
-    <string name="add_product_photo">Add Product Photo</string>
+    <string name="add_product_photo">Update Photo</string>
     <string name="err_external_storage_permissions">Need permissions to get a product photo</string>
     <string name="action_insert_dummy_data">Insert dummy data</string>
     <string name="action_delete_all_entries">Delete all Data</string>
+    <string name="click_photo_to_update">Click Photo to update</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_description">Product Description</string>
+    <string name="set_product_sales">Set Product Sales</string>
+    <string name="set_inventory">Set Inventory</string>
+    <string name="set_product_price">Set Product Price</string>
+    <string name="set_supplier">Set Supplier</string>
+    <string name="order_more">Order More</string>
+    <string name="update">Update</string>
+    <string name="save_product_label">Save Product</string>
+    <string name="update_product_label">Update product</string>
+    <string name="err_missing_textfields">You need to complete all fields</string>
+    <string name="err_inserting_product">Error inserting please try again</string>
+    <string name="ok_updated">"Record updated successfully "</string>
+    <string name="unsaved_changes_dialog_msg">You have unsave information are you sure you want to go back?</string>
+    <string name="discard">Discard and leave</string>
+    <string name="keep_editing">Lets finish this</string>
+    <string name="editor_delete_pet_failed">There was a problem deleting  product</string>
+    <string name="editor_delete_pet_successful">Deleted successfully</string>
+    <string name="delete_dialog_msg">Are you sure you want to delete the product</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="menu_settings">Settings</string>
 </resources>

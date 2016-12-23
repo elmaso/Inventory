@@ -4,5 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="thumbnail_margin">4dp</dimen>
-    <dimen name="thumbnail_size">56dp</dimen>
+    <dimen name="thumbnail_size">64dp</dimen>
+    <dimen name="product_dim">140dp</dimen>
 </resources>

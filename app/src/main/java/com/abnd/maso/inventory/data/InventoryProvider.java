@@ -3,14 +3,12 @@ package com.abnd.maso.inventory.data;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.abnd.maso.inventory.R;
 
@@ -207,6 +205,7 @@ public class InventoryProvider extends ContentProvider {
         }
 
         //todo add Validations of fields that are updated
+
         switch (match) {
             case INVENTORY:
                 rowsUpdated = database.update(InventoryEntry.TABLE_NAME,

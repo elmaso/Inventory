@@ -9,7 +9,6 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,11 +18,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 
 import static com.abnd.maso.inventory.data.InventoryContract.InventoryEntry;
@@ -83,9 +77,7 @@ public class InventoryActivity extends AppCompatActivity implements
                 Intent intent = new Intent(InventoryActivity.this, InventoryEditor.class);
 
                 Uri currentProductUri = ContentUris.withAppendedId(InventoryEntry.CONTENT_URI, id);
-
                 intent.setData(currentProductUri);
-
                 startActivity(intent);
 
             }
@@ -94,8 +86,6 @@ public class InventoryActivity extends AppCompatActivity implements
         // Kick off the loader
         getLoaderManager().initLoader(INVENTORY_LOADER, null, this);
 
-        //Todo delete this  or put it in a option menu
-        // insertNewRandomData();
     }
 
 
@@ -137,9 +127,22 @@ public class InventoryActivity extends AppCompatActivity implements
                 insertNewRandomData();
                 return true;
             // Respond to a click on the "Delete all entries" menu option
+            case R.id.action_delete_all_entries:
+                deleteAllProducts();
+                return true;
+
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    /**
+     * Helper method to delete all pets in the database.
+     */
+    private void deleteAllProducts() {
+        int rowsDeleted = getContentResolver().delete(InventoryEntry.CONTENT_URI, null, null);
+        Log.v("CatalogActivity", rowsDeleted + " rows deleted from products database");
     }
 
 
@@ -149,7 +152,7 @@ public class InventoryActivity extends AppCompatActivity implements
         //randomize the data for the activity that will insert
         Random r = new Random();
         String productName = "NewProduct_" + r.nextInt(40000 - 100);
-        int quantity = r.nextInt(4 - 1);
+        int quantity = r.nextInt(40 - 10);
         float price = r.nextInt(200 - 10);
 
         ContentValues values = new ContentValues();

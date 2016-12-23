@@ -1,77 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin"
     android:scrollbars="vertical">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/update_photo_label"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/click_photo_to_update"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/image_product_photo"
-            android:layout_width="158dp"
-            android:layout_height="108dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_photo_label" />
 
 
-        <Button
-            android:id="@+id/add_product_photo_button"
+        <TextView
+            android:id="@+id/name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:onClick="onPhotoProductUpdate"
-            android:text="@string/add_product_photo" />
-
+            android:text="@string/product_name"
+            app:layout_constraintLeft_toLeftOf="@+id/inventory_item_name_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/inventory_item_name_edittext" />
 
         <EditText
             android:id="@+id/inventory_item_name_edittext"
             style="@style/EditorFieldStyle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Product Name"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/product_name"
             android:inputType="textCapWords"
-            tools:text="NameDemo" />
+            android:maxLines="1"
+            app:layout_constraintLeft_toRightOf="@+id/image_product_photo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Product Name" />
+
+        <TextView
+            android:id="@+id/descriptionLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_description"
+            app:layout_constraintLeft_toLeftOf="@+id/inventory_item_description_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/inventory_item_description_edittext" />
+
 
         <EditText
             android:id="@+id/inventory_item_description_edittext"
             style="@style/EditorFieldStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/product_description"
             android:inputType="textMultiLine"
-            tools:text="Description" />
+            android:maxLength="30"
+            android:maxLines="4"
+            app:layout_constraintLeft_toRightOf="@+id/image_product_photo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_label"
+            tools:text="@string/product_description" />
+
+
+        <TextView
+            android:id="@+id/priceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_product_price"
+            app:layout_constraintLeft_toLeftOf="@+id/inventory_item_price_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/inventory_item_price_edittext" />
 
 
         <EditText
             android:id="@+id/inventory_item_price_edittext"
             style="@style/EditorFieldStyle"
-
-            android:layout_width="wrap_content"
-            android:hint="Price"
+            android:layout_width="140dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/set_product_price"
             android:inputType="numberDecimal"
+            android:text="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inventoryLabel"
             tools:text="$34" />
+
+
+        <TextView
+            android:id="@+id/inventoryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_inventory"
+            app:layout_constraintLeft_toLeftOf="@+id/inventory_item_current_quantity_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/inventory_item_current_quantity_edittext" />
+
 
         <EditText
             android:id="@+id/inventory_item_current_quantity_edittext"
             style="@style/EditorFieldStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:hint="Product Inventory"
+            android:layout_width="140dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/set_inventory"
             android:inputType="number"
+            android:maxLines="1"
+            android:text="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_product_photo"
             tools:text="3" />
 
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/salesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_product_sales"
+            app:layout_constraintLeft_toLeftOf="@+id/current_sales_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/current_sales_edittext" />
+
+        <EditText
+            android:id="@+id/current_sales_edittext"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/set_product_sales"
+            android:ems="10"
+            android:inputType="number"
+            android:maxLines="1"
+            android:text="0"
+            app:layout_constraintLeft_toRightOf="@+id/inventory_item_current_quantity_edittext"
+            app:layout_constraintTop_toTopOf="@+id/inventory_item_current_quantity_edittext"
+            tools:text="33" />
+
+        <TextView
+            android:id="@+id/lable_supplier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_supplier"
+            app:layout_constraintLeft_toLeftOf="@+id/suplier_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/suplier_edittext" />
+
+        <EditText
+            android:id="@+id/suplier_edittext"
+            android:layout_width="196dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/set_supplier"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            app:layout_constraintLeft_toRightOf="@+id/inventory_item_price_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/salesLabel" />
+
+        <TextView
+            android:id="@+id/order_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/order_more"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toRightOf="@+id/delete_label"
+            app:layout_constraintRight_toLeftOf="@+id/update_save_label"
+            app:layout_constraintTop_toBottomOf="@+id/order_supplier_button" />
+
+        <TextView
+            android:id="@+id/update_save_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/update"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_product_button" />
+
+        <ImageButton
+            android:id="@+id/order_supplier_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/suplier_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/save_product_button"
+            app:layout_constraintTop_toTopOf="@+id/save_product_button"
+            app:srcCompat="@drawable/ic_contact_supplier" />
+
+        <ImageButton
+            android:id="@+id/save_product_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="64dp"
+            android:tint="@android:color/holo_green_dark"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lable_supplier"
+            app:srcCompat="@drawable/ic_save_change" />
+
+        <TextView
+            android:id="@+id/delete_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Delete Product"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/delete_product_button" />
+
+        <ImageButton
+            android:id="@+id/delete_product_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:tint="@android:color/holo_red_dark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/order_supplier_button"
+            app:srcCompat="@drawable/ic_delete_product" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </ScrollView>
