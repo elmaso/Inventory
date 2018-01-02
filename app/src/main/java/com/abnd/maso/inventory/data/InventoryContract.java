@@ -61,6 +61,8 @@ public class InventoryContract {
         public final static String COL_DESCRIPTION = "description";
         public final static String COL_ITEMS_SOLD = "sales";
         public final static String COL_SUPPLIER = "supplier";
+        public final static String COL_SUPPLIER_EMAIL = "supplier_email";
+        public final static String COL_SUPPLIER_PHONE = "supplier_pone";
         public final static String COL_PICTURE = "picture";
 
         public static Uri buildInventoryURI(long id) {

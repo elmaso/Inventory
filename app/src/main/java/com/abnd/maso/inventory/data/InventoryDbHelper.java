@@ -40,12 +40,16 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
                 + InventoryEntry.COL_PICTURE + " TEXT NOT NULL DEFAULT 'No images', "
                 + InventoryEntry.COL_DESCRIPTION + " TEXT NOT NULL DEFAULT 'New Product ', "
                 + InventoryEntry.COL_ITEMS_SOLD + " INTEGER NOT NULL DEFAULT 0, "
-                + InventoryEntry.COL_SUPPLIER + " TEXT NOT NULL DEFAULT 'new' "
+                + InventoryEntry.COL_SUPPLIER + " TEXT NOT NULL DEFAULT 'new', "
+                + InventoryEntry.COL_SUPPLIER_EMAIL + " TEXT NOT NULL DEFAULT 'user@new.com',"
+                + InventoryEntry.COL_SUPPLIER_PHONE + " TEXT NOT NULL DEFAULT '(999)999-9999'"
                 + ");";
 
         db.execSQL(SQL_CREATE_INVENTORY);
     }
 
+
+//Todo change the drop table implementation to more user friendly version that dose'nt delete user data https://riggaroo.co.za/android-sqlite-database-use-onupgrade-correctly/
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + InventoryEntry.TABLE_NAME);
